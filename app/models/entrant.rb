@@ -4,6 +4,7 @@ class Entrant
 
   embeds_many :results, class_name: "LegResult", after_add: :update_total, order: :"event.o".asc
   embeds_one :race, class_name: "RaceRef"
+  embeds_one :racer, as: :parent, class_name: 'RacerInfo'
 
   store_in collection: "results"
 

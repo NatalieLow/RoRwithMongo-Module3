@@ -2,7 +2,6 @@ class Event
   include Mongoid::Document
 
   embedded_in :parent, polymorphic: true, touch: true
-  
 
   validates_presence_of :order, :name
 

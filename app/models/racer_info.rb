@@ -3,7 +3,8 @@ require 'date'
 class RacerInfo
   include Mongoid::Document
 
-  embedded_in :parent, polymorphic: true
+  embedded_in :parent, class_name: 'Entrant', polymorphic: true
+  embedded_in :parent, class_name: 'Racer', polymorphic: true
 
   validates_presence_of :first_name, :last_name, :gender, :birth_year
   validates :gender, inclusion: { in: %w(M F), message: "Must be M or F"}
