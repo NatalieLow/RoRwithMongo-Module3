@@ -3,6 +3,7 @@ class Entrant
   include Mongoid::Timestamps
 
   embeds_many :results, class_name: "LegResult", after_add: :update_total, order: :"event.o".asc
+  embeds_one :race, class_name: "RaceRef"
 
   store_in collection: "results"
 
@@ -16,5 +17,9 @@ class Entrant
     total = self.secs.nil? ? result.secs : (self.secs + result.secs)
     
     self.secs = total
+  end
+
+  def the_race
+    race.race
   end
 end
