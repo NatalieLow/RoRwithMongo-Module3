@@ -10,7 +10,6 @@ class Event
   field :d, as: :distance, type: Float
   field :u, as: :units, type: String
 
-
   def meters
     case self.u
     when "meters"
@@ -24,7 +23,6 @@ class Event
     else
       return nil
     end
-
   end
 
   def miles
@@ -41,6 +39,5 @@ class Event
       return nil
     end
   end
-
   
 end

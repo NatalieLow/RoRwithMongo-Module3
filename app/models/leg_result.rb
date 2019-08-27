@@ -7,13 +7,12 @@ class LegResult
 
   validates_presence_of :event
 
-  def calc_ave
-    
+  def calc_ave 
   end
 
   after_initialize :calc_ave
 
-  def secs= value
+  def secs=(value)
     self[:secs] = value
     self.calc_ave
   end
