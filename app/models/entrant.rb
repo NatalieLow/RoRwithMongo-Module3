@@ -14,6 +14,9 @@ class Entrant
   field :gender, type: Placing
   field :group, type: Placing
 
+  scope :upcoming, -> { where(:date.gte => Date.current) }
+  scope :past, -> { where(:date.lt => Date.current) }
+
   def update_total(_result)
       total = 0.0
       if !results.empty?
