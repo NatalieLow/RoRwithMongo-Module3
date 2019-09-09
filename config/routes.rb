@@ -1,18 +1,8 @@
 Rails.application.routes.draw do
-  # resources :racers do
-  #   post "entries" => "racers#create_entry"
-  # end
-  # resources :races
-
-  scope '/api' do
-    resources :races, only: [:index, :create, :show], controller: 'api/races' do
-      resources :results, only: [:index, :show], controller: 'api/race_results'
-    end
-    resources :racers, only: [:index, :show], controller: 'api/racers' do
-      resources :entries, only: [:index, :show], controller: 'api/racer_entries'
-    end
+  resources :racers do
+    post "entries" => "racers#create_entry"
   end
-  
+  resources :races
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
